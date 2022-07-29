@@ -4,7 +4,7 @@ def calculate(list):
     if len(list) < 9:
         raise ValueError("List must contain nine numbers.")
 
-    matrix = __create_matrix(list)
+    matrix = np.reshape(list,(3,3))
     
     calculations = dict()
     calculations["mean"] = __calculate_measure(matrix, np.mean)
@@ -14,9 +14,6 @@ def calculate(list):
     calculations["min"] = __calculate_measure(matrix, np.amin)
     calculations["sum"] = __calculate_measure(matrix, np.sum)
     return calculations
-
-def __create_matrix(list):
-    return np.reshape(list,(3,3))
 
 def __calculate_measure(matrix, fn):
     list = []
